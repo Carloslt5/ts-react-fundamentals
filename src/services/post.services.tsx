@@ -14,6 +14,10 @@ class PostServices {
         return this.api.get(`/posts`)
     }
 
+    getOnePost(id) {
+        return this.api.get(`/posts/${id}`)
+    }
+
 
 }
 
