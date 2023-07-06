@@ -1,22 +1,22 @@
 import axios from "axios"
 
-// class PostServices {
+class PostServices {
 
-//     constructor() {
+    constructor() {
 
-//         this.api = axios.create({
-//             baseURL: 'https://jsonplaceholder.typicode.com'
-//         })
+        this.api = axios.create({
+            baseURL: 'https://jsonplaceholder.typicode.com'
+        })
 
-//     }
+    }
 
-//     getAllPost() {
-//         return this.api.get(`/posts`)
-//     }
+    getAllPost() {
+        return this.api.get(`/posts`)
+    }
 
 
-// }
+}
 
-// const postservices = new PostServices()
+const postservices = new PostServices()
 
-// export default postservices
+export default postservices
