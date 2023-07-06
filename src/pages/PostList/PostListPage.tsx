@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import postservices from './../../services/post.services'
+import { Post } from './../../types/Post.type';
 
-interface Post {
-    userId: number;
-    id: number;
-    title: string;
-    body: string
-}
 
 const PostListPage = () => {
     const [postData, setPostData] = useState<Post[]>()
@@ -15,7 +10,7 @@ const PostListPage = () => {
     const loadPost = () => {
         postservices
             .getAllPost()
-            .then(({ data }) => {
+            .then(({ data }: { data: Post[] }) => {
                 setPostData(data)
             })
             .catch(err => console.log(err))

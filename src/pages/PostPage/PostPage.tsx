@@ -1,24 +1,17 @@
 import { Link, useParams } from "react-router-dom"
 import postservices from './../../services/post.services'
 import { useEffect, useState } from "react";
-
-interface Post {
-    userId: number;
-    id: number;
-    title: string;
-    body: string
-}
+import { Post } from './../../types/Post.type';
 
 const PostPage = () => {
 
     const { id } = useParams()
-
     const [post, setPost] = useState<Post>()
 
     const loadPost = () => {
         postservices
             .getOnePost(id)
-            .then(({ data }) => {
+            .then(({ data }: { data: Post }) => {
                 setPost(data)
             })
             .catch(err => console.log(err))
@@ -40,11 +33,11 @@ const PostPage = () => {
                         <p>{post.body}</p>
                     </div>
                     <div className="container mx-auto mt-4 flex gap-2">
-                        <Link to={'/postslist'} className="text-white bg-gray-900 py-2 px-4 rounded">
-                            Go Posts List
-                        </Link>
                         <Link to={'/'} className="text-white bg-gray-900 py-2 px-4 rounded">
                             Go Home
+                        </Link>
+                        <Link to={'/postslist'} className="text-white bg-gray-600 py-2 px-4 rounded">
+                            Go Posts List
                         </Link>
                     </div>
                 </div>}
