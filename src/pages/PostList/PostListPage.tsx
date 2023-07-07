@@ -10,9 +10,7 @@ const PostListPage = () => {
     const loadPost = () => {
         postservices
             .getAllPost()
-            .then(({ data }: { data: Post[] }) => {
-                setPostData(data)
-            })
+            .then(({ data }: { data: Post[] }) => setPostData(data))
             .catch(err => console.log(err))
     }
 
@@ -41,8 +39,7 @@ const PostListPage = () => {
                                 </Link>
                             </div>
                         </div>
-                    )
-                    )}
+                    ))}
             </section>
             <div className="flex justify-center container mx-auto mt-4 px-2 ">
                 <Link to={'/'} className="text-white bg-gray-900 py-2 px-4 rounded content-center">
