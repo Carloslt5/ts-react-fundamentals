@@ -1,35 +1,50 @@
-import axios from "axios"
+import axios, { AxiosInstance } from "axios"
 
-const baseUrlApi = axios.create({
-    baseURL: "https://jsonplaceholder.typicode.com"
-})
+// const baseUrlApi = axios.create({
+//     baseURL: "https://jsonplaceholder.typicode.com"
+// })
 
 class PostServices {
+    instance: AxiosInstance;
+
+    constructor() {
+        this.instance = axios.create({
+            baseURL: "https://jsonplaceholder.typicode.com"
+        });
+    }
+
     getAllPost() {
-        return baseUrlApi.get("/posts")
+        return this.instance.get("/posts")
     }
     getOnePost(id) {
-        return baseUrlApi.get(`/posts/${id}`)
+        return this.instance.get(`/posts/${id}`)
     }
 }
 
 const postservices = new PostServices()
 export default postservices
 
+// class HttpClient {
+//     instance: AxiosInstance;
+//     constructor(baseURL: string) {
+//         this.instance = axios.create({
+//             baseURL
+//         });
+//     }
+// }
 
-// class PostServices {
+// class PostServices extends HttpClient {
 
 //     constructor() {
-//         this.api = axios.create({
-//             baseURL: "https://jsonplaceholder.typicode.com"
-//         })
+//         super('https://jsonplaceholder.typicode.com');
 //     }
 
 //     getAllPost() {
-//         return this.api.get("/posts")
+//         return this.instance.get("/posts")
 //     }
-//     getOnePost(id) {
-//         return this.api.get(`/posts/${id}`)
+
+//     getOnePost(id: string) {
+//         return this.instance.get(`/posts/${id}`)
 //     }
 
 // }
