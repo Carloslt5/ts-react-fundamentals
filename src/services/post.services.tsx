@@ -1,10 +1,7 @@
 import axios, { AxiosInstance } from "axios"
 
-// const baseUrlApi = axios.create({
-//     baseURL: "https://jsonplaceholder.typicode.com"
-// })
-
 class PostServices {
+
     instance: AxiosInstance;
 
     constructor() {
@@ -16,7 +13,7 @@ class PostServices {
     getAllPost() {
         return this.instance.get("/posts")
     }
-    getOnePost(id) {
+    getOnePost(id: any) {
         return this.instance.get(`/posts/${id}`)
     }
 }
@@ -24,30 +21,3 @@ class PostServices {
 const postservices = new PostServices()
 export default postservices
 
-// class HttpClient {
-//     instance: AxiosInstance;
-//     constructor(baseURL: string) {
-//         this.instance = axios.create({
-//             baseURL
-//         });
-//     }
-// }
-
-// class PostServices extends HttpClient {
-
-//     constructor() {
-//         super('https://jsonplaceholder.typicode.com');
-//     }
-
-//     getAllPost() {
-//         return this.instance.get("/posts")
-//     }
-
-//     getOnePost(id: string) {
-//         return this.instance.get(`/posts/${id}`)
-//     }
-
-// }
-
-// const postservices = new PostServices()
-// export default postservices

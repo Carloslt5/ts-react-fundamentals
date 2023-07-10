@@ -12,6 +12,7 @@ const PostPage = () => {
         postservices
             .getOnePost(id)
             .then(({ data }: { data: Post }) => {
+                console.log('esto es lo que recibo', data)
                 setPost(data)
             })
             .catch(err => console.log(err))
